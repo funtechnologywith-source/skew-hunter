@@ -84,8 +84,14 @@ class SkewHunterEngine:
         self.option_chain: Optional[dict] = None
         self.indicators: dict = {}
 
-        # Refresh interval
-        self.refresh_interval = 0.5 if execution_mode == "LIVE" else config.get('REFRESH_INTERVAL_SECONDS', 3)
+        # Refresh interval - optimized for low latency
+        # LIVE: 0.3s, PAPER: 1s, OFF: 1.5s
+        if execution_mode == "LIVE":
+            self.refresh_interval = 0.3
+        elif execution_mode == "PAPER":
+            self.refresh_interval = 1.0
+        else:
+            self.refresh_interval = 1.5
 
         # Configure Telegram if set
         telegram_config = config.get('TELEGRAM', {})

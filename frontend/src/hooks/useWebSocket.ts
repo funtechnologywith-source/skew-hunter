@@ -39,11 +39,11 @@ export function useWebSocket(url: string) {
         setState(prev => ({ ...prev, connected: false }))
         console.log('WebSocket disconnected')
 
-        // Attempt to reconnect after 3 seconds
+        // Fast reconnect - 500ms for low latency
         reconnectTimeoutRef.current = setTimeout(() => {
-          console.log('Attempting to reconnect...')
+          console.log('Reconnecting...')
           connect()
-        }, 3000)
+        }, 500)
       }
 
       ws.onerror = (error) => {
