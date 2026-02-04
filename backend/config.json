@@ -1,0 +1,114 @@
+{
+  "ACTIVE_MODE": "STRICT",
+  "EXPIRY": "2026-01-20",
+  "MODES": {
+    "STRICT": {
+      "alpha_1_call": 0.85,
+      "alpha_1_put": 0.85,
+      "alpha_2_call": 0.85,
+      "alpha_2_put": 0.85,
+      "min_confidence": 85,
+      "min_quality_score": 85,
+      "min_confluence": 5,
+      "volume_ratio_threshold": 2.5,
+      "oi_change_velocity": 12,
+      "oi_persistence_bars": 3
+    },
+    "BALANCED": {
+      "alpha_1_call": 0.8,
+      "alpha_1_put": 0.8,
+      "alpha_2_call": 0.82,
+      "alpha_2_put": 0.82,
+      "min_confidence": 80,
+      "min_quality_score": 80,
+      "min_confluence": 4,
+      "volume_ratio_threshold": 2.3,
+      "oi_change_velocity": 10,
+      "oi_persistence_bars": 2
+    },
+    "RELAXED": {
+      "alpha_1_call": 0.65,
+      "alpha_1_put": 0.65,
+      "alpha_2_call": 0.68,
+      "alpha_2_put": 0.68,
+      "min_confidence": 65,
+      "min_quality_score": 65,
+      "min_confluence": 2,
+      "volume_ratio_threshold": 1.5,
+      "oi_change_velocity": 5,
+      "oi_persistence_bars": 1
+    }
+  },
+  "RISK": {
+    "position_size_lots": 1,
+    "max_risk_per_trade_pct": 2,
+    "daily_loss_limit_pct": 5,
+    "max_trades_per_day": 5
+  },
+  "EXIT": {
+    "profit_target_pct": 20,
+    "time_exit": "15:15",
+    "mtm_max_loss": -5000,
+    "mtm_protect_trigger": 5000,
+    "mtm_protect_pct": 0.5,
+    "min_hold_seconds": 30,
+    "vix_regimes": {
+      "low": {
+        "max_vix": 12,
+        "initial_sl_pct": 0.25,
+        "trail_activation": 0.2,
+        "trail_distance": 0.25
+      },
+      "normal": {
+        "max_vix": 15,
+        "initial_sl_pct": 0.25,
+        "trail_activation": 0.22,
+        "trail_distance": 0.28
+      },
+      "elevated": {
+        "max_vix": 20,
+        "initial_sl_pct": 0.25,
+        "trail_activation": 0.25,
+        "trail_distance": 0.32
+      },
+      "high": {
+        "max_vix": 25,
+        "initial_sl_pct": 0.25,
+        "trail_activation": 0.28,
+        "trail_distance": 0.38
+      },
+      "extreme": {
+        "max_vix": 100,
+        "initial_sl_pct": 0.25,
+        "trail_activation": 0.32,
+        "trail_distance": 0.42
+      }
+    }
+  },
+  "FILTERS": {
+    "min_option_price": 20,
+    "max_option_price": 150,
+    "min_volume": 25000,
+    "max_spread_pct": 2.5,
+    "min_atr_14": 80,
+    "min_trend_strength": 0.6,
+    "min_vix": 10,
+    "min_oi_change_writing": 400000
+  },
+  "TIMING": {
+    "trading_start": "09:45",
+    "lunch_avoid_start": "12:00",
+    "lunch_avoid_end": "12:45",
+    "eod_squareoff": "15:15",
+    "market_close": "15:30"
+  },
+  "REFRESH_INTERVAL_SECONDS": 3,
+  "EXECUTION": {
+    "enabled": false,
+    "paper_trading": true,
+    "order_type": "MARKET",
+    "product_type": "I",
+    "order_timeout_seconds": 30,
+    "max_retry_attempts": 3
+  }
+}

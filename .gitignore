@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build
+frontend/dist/
+
+# Environment
+.env
+*.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Cache
+.cache/
+cache_data.json
+
+# Session state (contains sensitive data)
+session_state.json
+
+# OS
+.DS_Store
+Thumbs.db
